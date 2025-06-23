@@ -1,0 +1,68 @@
+{% extends "core/index.html" %}
+{% block title %}Home{% endblock title %}
+
+{% block main-content %}
+<style>
+    body {
+        background: linear-gradient(to right,rgb(119, 40, 202),rgb(64, 132, 250));
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .form-card {
+        background-color: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        margin-top: 40px;
+        {% comment %} transition: all 0.3s ease-in-out; {% endcomment %}
+    }
+
+    {% comment %} .form-card:hover {
+        transform: scale(1.02);
+    } {% endcomment %}
+
+    .form-card h3 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        background-color: #2575fc;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #1a5edb;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+        border-radius: 8px !important;
+        padding: 10px !important;
+        border: 1px solid #ccc !important;
+        width: 100% !important;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: 600;
+    }
+</style>
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 form-card">
+            <h3 class="text-center">Add / Edit Student</h3>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="text-center">
+                    <input type="submit" value="Submit" class="btn btn-primary px-4">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock main-content %}
